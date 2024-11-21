@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DBOperationsWithEFCoreApp/.vs/DBOperationsWithEFCoreApp/FileContentIndex/32c413ce-4007-48b6-b2f9-8c749d589965.vsidx
+*.vsidx
+/DBOperationsWithEFCoreApp/.vs/DBOperationsWithEFCoreApp/FileContentIndex/8411afb1-3462-4b03-992f-ba7b677266ea.vsidx
