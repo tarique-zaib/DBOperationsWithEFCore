@@ -1,4 +1,7 @@
 
+using DBOperationsWithEFCoreApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace DBOperationsWithEFCoreApp
 {
     public class Program
@@ -8,7 +11,7 @@ namespace DBOperationsWithEFCoreApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AppDb")));
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
