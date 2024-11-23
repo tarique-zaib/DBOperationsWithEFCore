@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace DBOperationsWithEFCoreApp.Data
 {
@@ -10,12 +11,21 @@ namespace DBOperationsWithEFCoreApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Student>().HasData
+            modelBuilder.Entity<Students>().HasData
             (
-                new Student() { Id = 1, FirstName = "Tarique", LastName = "Zaib", Email = "Tarique.Zaib@gmail.com" }
+                new Students() { Id = 9, FirstName = "Tarique", LastName = "Zaib", Email = "Tarique.Zaib@gmail.com" }                
             );
+            modelBuilder.Entity<UserAccounts>().HasData(
+                new UserAccounts()
+                {
+                    Id = 1,
+                    FullName = "Tarique Zaib",
+                    UserName = "TZaib",
+                    Password = "admin123"
+                });
         }
 
-        public DbSet<Student> Student { get; set; }
+        public DbSet<Students> Students { get; set; }
+        public DbSet<UserAccounts> UserAccounts { get; set; }
     }
 }

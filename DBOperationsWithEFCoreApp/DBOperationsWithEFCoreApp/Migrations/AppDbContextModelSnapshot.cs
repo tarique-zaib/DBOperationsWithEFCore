@@ -21,7 +21,7 @@ namespace DBOperationsWithEFCoreApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DBOperationsWithEFCoreApp.Data.Student", b =>
+            modelBuilder.Entity("DBOperationsWithEFCoreApp.Data.Students", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,28 +30,56 @@ namespace DBOperationsWithEFCoreApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Student");
+                    b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 9,
+                            Email = "Tarique.Zaib@gmail.com",
+                            FirstName = "Tarique",
+                            LastName = "Zaib"
+                        });
+                });
+
+            modelBuilder.Entity("DBOperationsWithEFCoreApp.Data.UserAccounts", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserAccounts");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Email = "Tarique.Zaib@gmail.com",
-                            FirstName = "Tarique",
-                            LastName = "Zaib"
+                            FullName = "Tarique Zaib",
+                            Password = "admin123",
+                            UserName = "TZaib"
                         });
                 });
 #pragma warning restore 612, 618
